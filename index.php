@@ -240,7 +240,9 @@ session_start();
   </section>
 
   <section id="thirdsection">
-    <h1 class="head">≼ Facilities ≽</h1>
+    <!-- <h1 class="head">≼ Facilities ≽</h1> -->
+    <a href="editBooking.php?id=<?php echo $bookingId; ?>">Edit</a>
+
     <div class="facility">
       <div class="box">
         <h2>Swiming pool</h2>
