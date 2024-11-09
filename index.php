@@ -50,7 +50,7 @@ session_start();
     <ul>
       <li><a href="#firstsection">Home</a></li>
       <li><a href="#secondsection">Rooms</a></li>
-      <li><a href="#thirdsection">Facilites</a></li>
+      <a href="editBooking.php?id=<?php echo $bookingId; ?>">Edit</a>
       <li><a href="#contactus">Contact us</a></li>
       <!-- <a href="./logout.php"><button class="btn btn-danger">Logout</button></a> -->
     </ul>
@@ -240,7 +240,7 @@ session_start();
   </section>
 
   <section id="thirdsection">
-    <!-- <h1 class="head">≼ Facilities ≽</h1> -->
+     <h1 class="head">≼ Facilities ≽
     <a href="editBooking.php?id=<?php echo $bookingId; ?>">Edit</a>
 
     <div class="facility">
