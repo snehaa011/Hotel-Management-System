@@ -391,7 +391,6 @@
 		$id = $row['id'];
 		$Name = $row['Name'];
 		$troom = $row['RoomType'];
-		$bed = $row['Bed'];
 		$nroom = $row['NoofRoom'];
 		$cin = $row['cin'];
 		$cout = $row['cout'];
