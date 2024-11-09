@@ -9,9 +9,6 @@ $sql ="Select * from booking where id = '$id'";
 $re = mysqli_query($conn,$sql);
 while($row=mysqli_fetch_array($re))
 {
-    $Name = $row['Name'];
-    $Email = $row['Email'];
-    $Country = $row['Country'];
     $Phone = $row['Phone'];
     $cin = $row['cin'];
     $cout = $row['cout'];
@@ -22,16 +19,14 @@ while($row=mysqli_fetch_array($re))
 if (isset($_POST['guestdetailedit'])) {
     $EditName = $_POST['Name'];
     $EditEmail = $_POST['Email'];
-    $EditCountry = $_POST['Country'];
     $EditPhone = $_POST['Phone'];
     $EditRoomType = $_POST['RoomType'];
-    $EditBed = $_POST['Bed'];
     $EditNoofRoom = $_POST['NoofRoom'];
     $EditMeal = $_POST['Meal'];
     $Editcin = $_POST['cin'];
     $Editcout = $_POST['cout'];
 
-    $sql = "UPDATE booking SET Name = '$EditName',Email = '$EditEmail',Country='$EditCountry',Phone='$EditPhone',RoomType='$EditRoomType',Bed='$EditBed',NoofRoom='$EditNoofRoom',Meal='$EditMeal',cin='$Editcin',cout='$Editcout',nodays = datediff('$Editcout','$Editcin') WHERE id = '$id'";
+    $sql = "UPDATE booking SET Name = '$EditName',Email = '$EditEmail',Phone='$EditPhone',RoomType='$EditRoomType',NoofRoom='$EditNoofRoom',Meal='$EditMeal',cin='$Editcin',cout='$Editcout',nodays = datediff('$Editcout','$Editcin') WHERE id = '$id'";
 
     $result = mysqli_query($conn, $sql);
 

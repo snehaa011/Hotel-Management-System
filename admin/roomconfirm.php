@@ -8,12 +8,7 @@ $sql ="Select * from booking where id = '$id'";
 $re = mysqli_query($conn,$sql);
 while($row=mysqli_fetch_array($re))
 {
-	$Name = $row['Name'];
-    $Email = $row['Email'];
-    $Country = $row['Country'];
-    $Phone = $row['Phone'];
     $RoomType = $row['RoomType'];
-    $Bed = $row['Bed'];
     $NoofRoom = $row['NoofRoom'];
     $Meal = $row['Meal'];
     $cin = $row['cin'];
@@ -51,26 +46,26 @@ if($stat == "NotConfirm")
         }
         
         
-        if($Bed=="Single")
-        {
-            $type_of_bed = $type_of_room * 1/100;
-        }
-        else if($Bed=="Double")
-        {
-            $type_of_bed = $type_of_room * 2/100;
-        }
-        else if($Bed=="Triple")
-        {
-            $type_of_bed = $type_of_room * 3/100;
-        }
-        else if($Bed=="Quad")
-        {
-            $type_of_bed = $type_of_room * 4/100;
-        }
-            else if($Bed=="None")
-        {
-            $type_of_bed = $type_of_room * 0/100;
-        }
+        // if($Bed=="Single")
+        // {
+        //     $type_of_bed = $type_of_room * 1/100;
+        // }
+        // else if($Bed=="Double")
+        // {
+        //     $type_of_bed = $type_of_room * 2/100;
+        // }
+        // else if($Bed=="Triple")
+        // {
+        //     $type_of_bed = $type_of_room * 3/100;
+        // }
+        // else if($Bed=="Quad")
+        // {
+        //     $type_of_bed = $type_of_room * 4/100;
+        // }
+        //     else if($Bed=="None")
+        // {
+        //     $type_of_bed = $type_of_room * 0/100;
+        // }
 
         if($Meal=="Room only")
         {
@@ -95,7 +90,7 @@ if($stat == "NotConfirm")
 
         $fintot = $ttot + $mepr + $btot;
 
-        $psql = "INSERT INTO payment(id,Name,Email,RoomType,Bed,NoofRoom,cin,cout,noofdays,roomtotal,bedtotal,meal,mealtotal,finaltotal) VALUES ('$id', '$Name', '$Email', '$RoomType', '$Bed', '$NoofRoom', '$cin', '$cout', '$noofday', '$ttot', '$btot', '$Meal', '$mepr', '$fintot')";
+        $psql = "INSERT INTO payment(id,RoomType,NoofRoom,cin,cout,noofdays,roomtotal,bedtotal,meal,mealtotal,finaltotal) VALUES ('$id', '$RoomType', '$NoofRoom', '$cin', '$cout', '$noofday', '$ttot', '$btot', '$Meal', '$mepr', '$fintot')";
 
         mysqli_query($conn,$psql);
 
