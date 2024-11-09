@@ -22,7 +22,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/home.css">
-    <title>Hotel blue bird</title>
+    <title>Hotel Sands</title>
     <!-- boot -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -51,8 +51,9 @@ session_start();
       <li><a href="#firstsection">Home</a></li>
       <li><a href="#secondsection">Rooms</a></li>
       <li><a href="#thirdsection">Facilites</a></li>
-      <li><a href="#contactus">Contact us</a></li>
-      <!-- <a href="./logout.php"><button class="btn btn-danger">Logout</button></a> -->
+      <li><a href="javascript:openbookbox()">Book Now</a></li>
+      <li><a href='roomdelete.php'>Cancel Booking</a>
+      <!-- <li><a href="#contactus">Contact us</a></li> -->
     </ul>
   </nav>
 
@@ -148,8 +149,7 @@ session_start();
                 $Meal = $_POST['Meal'];
                 $cin = $_POST['cin'];
                 $cout = $_POST['cout'];
-                // $stat =$_POST('stat')
-                if($FirstName == "" || $Guest_id == "" ){
+                if($FirstName == "" || $Guest_id == "" || $LastName = "" || $Email = "" || $Account_no="" ){
                     echo "<script>swal({
                         title: 'Fill the proper details',
                         icon: 'error',
@@ -192,8 +192,13 @@ echo "<script>console.log('Booked Rooms: " . $bookedRooms . "');</script>";
                     $result1 = mysqli_query($conn,$sql2);
                     
                     if ($result && $result1) {
+                      $getid = "SELECT id from booking where guest_id= '$Guest_id' and cin='$cin' and cout='$cout' and RoomType='$RoomType'";
+                      $idresult = mysqli_query($conn, $getid);
+                      $idrow = mysqli_fetch_assoc($idresult);
+                      $bookingid = $idrow['id'];
                         echo "<script>swal({
                             title: 'Reservation successful',
+                            text: 'Your booking ID is : $bookingid',
                             icon: 'success',
                         });
                         </script>";
