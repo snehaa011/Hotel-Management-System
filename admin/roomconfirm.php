@@ -4,7 +4,7 @@ include '../config.php';
 
 $id = $_GET['id'];
 
-$sql ="Select * from roombook where id = '$id'";
+$sql ="Select * from booking where id = '$id'";
 $re = mysqli_query($conn,$sql);
 while($row=mysqli_fetch_array($re))
 {
@@ -27,7 +27,7 @@ if($stat == "NotConfirm")
 {
     $st = "Confirm";
 
-    $sql = "UPDATE roombook SET stat = '$st' WHERE id = '$id'";
+    $sql = "UPDATE booking SET stat = '$st' WHERE id = '$id'";
     $result = mysqli_query($conn,$sql);
 
     if($result){
@@ -99,13 +99,13 @@ if($stat == "NotConfirm")
 
         mysqli_query($conn,$psql);
 
-        header("Location:roombook.php");
+        header("Location:booking.php");
     }
 }
 // else
 // {
 //     echo "<script>alert('Guest Already Confirmed')</script>";
-//     header("Location:roombook.php");
+//     header("Location:booking.php");
 // }
 
 

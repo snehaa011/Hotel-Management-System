@@ -5,7 +5,7 @@ include '../config.php';
 // fetch room data
 $id = $_GET['id'];
 
-$sql ="Select * from roombook where id = '$id'";
+$sql ="Select * from booking where id = '$id'";
 $re = mysqli_query($conn,$sql);
 while($row=mysqli_fetch_array($re))
 {
@@ -31,7 +31,7 @@ if (isset($_POST['guestdetailedit'])) {
     $Editcin = $_POST['cin'];
     $Editcout = $_POST['cout'];
 
-    $sql = "UPDATE roombook SET Name = '$EditName',Email = '$EditEmail',Country='$EditCountry',Phone='$EditPhone',RoomType='$EditRoomType',Bed='$EditBed',NoofRoom='$EditNoofRoom',Meal='$EditMeal',cin='$Editcin',cout='$Editcout',nodays = datediff('$Editcout','$Editcin') WHERE id = '$id'";
+    $sql = "UPDATE booking SET Name = '$EditName',Email = '$EditEmail',Country='$EditCountry',Phone='$EditPhone',RoomType='$EditRoomType',Bed='$EditBed',NoofRoom='$EditNoofRoom',Meal='$EditMeal',cin='$Editcin',cout='$Editcout',nodays = datediff('$Editcout','$Editcin') WHERE id = '$id'";
 
     $result = mysqli_query($conn, $sql);
 
@@ -93,7 +93,7 @@ if (isset($_POST['guestdetailedit'])) {
     }
     
     // noofday update
-    $psql ="Select * from roombook where id = '$id'";
+    $psql ="Select * from booking where id = '$id'";
     $presult = mysqli_query($conn,$psql);
     $prow=mysqli_fetch_array($presult);
     $Editnoofday = $prow['nodays'];
@@ -109,7 +109,7 @@ if (isset($_POST['guestdetailedit'])) {
     $paymentresult = mysqli_query($conn,$psql);
 
     if ($paymentresult) {
-            header("Location:roombook.php");
+            header("Location:booking.php");
     }
 
 }
@@ -129,7 +129,7 @@ if (isset($_POST['guestdetailedit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="./css/roombook.css">
+    <link rel="stylesheet" href="./css/booking.css">
     <style>
         #editpanel{
             position : fixed;
@@ -160,7 +160,7 @@ if (isset($_POST['guestdetailedit'])) {
         <form method="POST" class="guestdetailpanelform">
             <div class="head">
                 <h3>EDIT RESERVATION</h3>
-                <a href="./roombook.php"><i class="fa-solid fa-circle-xmark"></i></a>
+                <a href="./booking.php"><i class="fa-solid fa-circle-xmark"></i></a>
             </div>
             <div class="middle">
                 <div class="guestinfo">

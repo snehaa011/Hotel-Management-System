@@ -18,7 +18,7 @@ include '../config.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="./css/roombook.css">
+    <link rel="stylesheet" href="./css/booking.css">
     <title>sands - Admin</title>
 </head>
 
@@ -222,7 +222,7 @@ include '../config.php';
                 }
                 else{
                     $sta = "NotConfirm";
-                    $sql = "INSERT INTO roombook(Name,Email,Country,Phone,RoomType,Bed,NoofRoom,Meal,cin,cout,stat,nodays) VALUES ('$Name','$Email','$Country','$Phone','$RoomType','$Bed','$NoofRoom','$Meal','$cin','$cout','$sta',datediff('$cout','$cin'))";
+                    $sql = "INSERT INTO booking(Name,Email,Country,Phone,RoomType,Bed,NoofRoom,Meal,cin,cout,stat,nodays) VALUES ('$Name','$Email','$Country','$Phone','$RoomType','$Bed','$NoofRoom','$Meal','$cin','$cout','$sta',datediff('$cout','$cin'))";
                     $result = mysqli_query($conn, $sql);
 
                     // if($f1=="NO")
@@ -288,11 +288,11 @@ include '../config.php';
         </form>
     </div>
 
-    <div class="roombooktable" class="table-responsive-xl">
+    <div class="bookingtable" class="table-responsive-xl">
         <?php
-            $roombooktablesql = "SELECT * FROM roombook";
-            $roombookresult = mysqli_query($conn, $roombooktablesql);
-            $nums = mysqli_num_rows($roombookresult);
+            $bookingtablesql = "SELECT * FROM booking";
+            $bookingresult = mysqli_query($conn, $bookingtablesql);
+            $nums = mysqli_num_rows($bookingresult);
         ?>
         <table class="table table-bordered" id="table-data">
             <thead>
@@ -317,7 +317,7 @@ include '../config.php';
 
             <tbody>
             <?php
-            while ($res = mysqli_fetch_array($roombookresult)) {
+            while ($res = mysqli_fetch_array($bookingresult)) {
             ?>
                 <tr>
                     <td><?php echo $res['id'] ?></td>
@@ -344,8 +344,8 @@ include '../config.php';
                                 echo "<a href='roomconfirm.php?id=". $res['id'] ."'><button class='btn btn-success'>Confirm</button></a>";
                             }
                         ?>
-                        <a href="roombookedit.php?id=<?php echo $res['id'] ?>"><button class="btn btn-primary">Edit</button></a>
-                        <a href="roombookdelete.php?id=<?php echo $res['id'] ?>"><button class='btn btn-danger'>Delete</button></a>
+                        <a href="bookingedit.php?id=<?php echo $res['id'] ?>"><button class="btn btn-primary">Edit</button></a>
+                        <a href="bookingdelete.php?id=<?php echo $res['id'] ?>"><button class='btn btn-danger'>Delete</button></a>
                     </td>
                 </tr>
             <?php
@@ -355,7 +355,7 @@ include '../config.php';
         </table>
     </div>
 </body>
-<script src="./javascript/roombook.js"></script>
+<script src="./javascript/booking.js"></script>
 
 
 

@@ -59,7 +59,7 @@ if($usermail == true){
     <!-- main section -->
     <div class="mainscreen">
         <iframe class="frames frame1 active" src="./dashboard.php" frameborder="0"></iframe>
-        <iframe class="frames frame2" src="./roombook.php" frameborder="0"></iframe>
+        <iframe class="frames frame2" src="./booking.php" frameborder="0"></iframe>
         <iframe class="frames frame3" src="./payment.php" frameborder="0"></iframe>
         <iframe class="frames frame4" src="./room.php" frameborder="0"></iframe>
         <iframe class="frames frame4" src="./staff.php" frameborder="0"></iframe>

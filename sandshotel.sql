@@ -98,7 +98,7 @@ INSERT INTO `room` (`id`, `type`, `bedding`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roombook`
+-- Table structure for table `booking`
 --
 
 CREATE TABLE `booking` (
@@ -118,10 +118,10 @@ CREATE TABLE `booking` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `roombook`
+-- Dumping data for table `booking`
 --
 
-INSERT INTO `roombook` (`id`, `Name`, `Email`, `Country`, `Phone`, `RoomType`, `Bed`, `Meal`, `NoofRoom`, `cin`, `cout`, `nodays`, `stat`) VALUES
+INSERT INTO `booking` (`id`, `Name`, `Email`, `Country`, `Phone`, `RoomType`, `Bed`, `Meal`, `NoofRoom`, `cin`, `cout`, `nodays`, `stat`) VALUES
 (41, 'Tushar pankhaniya', 'pankhaniyatushar9@gmail.com', 'India', '9313346569', 'Single Room', 'Single', 'Room only', '1', '2022-11-09', '2022-11-10', 1, 'Confirm');
 
 -- --------------------------------------------------------
@@ -156,9 +156,9 @@ ALTER TABLE `room`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `roombook`
+-- Indexes for table `booking`
 --
-ALTER TABLE `roombook`
+ALTER TABLE `booking`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -190,9 +190,9 @@ ALTER TABLE `room`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `roombook`
+-- AUTO_INCREMENT for table `booking`
 --
-ALTER TABLE `roombook`
+ALTER TABLE `booking`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 COMMIT;

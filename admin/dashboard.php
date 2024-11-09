@@ -2,10 +2,10 @@
     session_start();
     include '../config.php';
 
-    // roombook
-    $roombooksql ="Select * from roombook";
-    $roombookre = mysqli_query($conn, $roombooksql);
-    $roombookrow = mysqli_num_rows($roombookre);
+    // booking
+    $bookingsql ="Select * from booking";
+    $bookingre = mysqli_query($conn, $bookingsql);
+    $bookingrow = mysqli_num_rows($bookingre);
 
     // staff
     $staffsql ="Select * from staff";
@@ -17,20 +17,20 @@
     $roomre = mysqli_query($conn, $roomsql);
     $roomrow = mysqli_num_rows($roomre);
 
-    //roombook roomtype
-    $chartroom1 = "SELECT * FROM roombook WHERE RoomType='Superior Room'";
+    //booking roomtype
+    $chartroom1 = "SELECT * FROM booking WHERE RoomType='Superior Room'";
     $chartroom1re = mysqli_query($conn, $chartroom1);
     $chartroom1row = mysqli_num_rows($chartroom1re);
 
-    $chartroom2 = "SELECT * FROM roombook WHERE RoomType='Deluxe Room'";
+    $chartroom2 = "SELECT * FROM booking WHERE RoomType='Deluxe Room'";
     $chartroom2re = mysqli_query($conn, $chartroom2);
     $chartroom2row = mysqli_num_rows($chartroom2re);
 
-    $chartroom3 = "SELECT * FROM roombook WHERE RoomType='Guest House'";
+    $chartroom3 = "SELECT * FROM booking WHERE RoomType='Guest House'";
     $chartroom3re = mysqli_query($conn, $chartroom3);
     $chartroom3row = mysqli_num_rows($chartroom3re);
 
-    $chartroom4 = "SELECT * FROM roombook WHERE RoomType='Single Room'";
+    $chartroom4 = "SELECT * FROM booking WHERE RoomType='Single Room'";
     $chartroom4re = mysqli_query($conn, $chartroom4);
     $chartroom4row = mysqli_num_rows($chartroom4re);
 ?>
@@ -70,9 +70,9 @@
 </head>
 <body>
    <div class="databox">
-        <div class="box roombookbox">
+        <div class="box bookingbox">
           <h2>Total Booked Room</h1>  
-          <h1><?php echo $roombookrow ?> / <?php echo $roomrow ?></h1>
+          <h1><?php echo $bookingrow ?> / <?php echo $roomrow ?></h1>
         </div>
         <div class="box guestbox">
         <h2>Total Staff</h1>  
