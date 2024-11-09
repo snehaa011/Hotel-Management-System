@@ -137,18 +137,16 @@ session_start();
         <!-- ==== room book php ====-->
         <?php       
             if (isset($_POST['guestdetailsubmit'])) {
-                $FirstName = $_POST['Name'];
+                $Name = $_POST['Name'];
                 $Email = $_POST['Email'];
-                $Country = $_POST['Country'];
                 $Phone = $_POST['Phone'];
                 $RoomType = $_POST['RoomType'];
-                $Bed = $_POST['Bed'];
                 $NoofRoom = $_POST['NoofRoom'];
                 $Meal = $_POST['Meal'];
                 $cin = $_POST['cin'];
                 $cout = $_POST['cout'];
 
-                if($Name == "" || $Email == "" || $Country == ""){
+                if($Name == "" || $Email == ""){
                     echo "<script>swal({
                         title: 'Fill the proper details',
                         icon: 'error',
@@ -157,7 +155,7 @@ session_start();
                 }
                 else{
                     $sta = "Confirmed";
-                    $sql = "INSERT INTO booking(Name,Email,Country,Phone,RoomType,Bed,NoofRoom,Meal,cin,cout,stat,nodays) VALUES ('$Name','$Email','$Country','$Phone','$RoomType','$Bed','$NoofRoom','$Meal','$cin','$cout','$sta',datediff('$cout','$cin'))";
+                    $sql = "INSERT INTO booking(Name,Email,Phone,RoomType,NoofRoom,Meal,cin,cout,stat,nodays) VALUES ('$Name','$Email','$Phone','$RoomType','$NoofRoom','$Meal','$cin','$cout','$sta',datediff('$cout','$cin'))";
                     $result = mysqli_query($conn, $sql);
 
                     
