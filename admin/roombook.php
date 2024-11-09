@@ -19,7 +19,7 @@ include '../config.php';
     <!-- sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="./css/roombook.css">
-    <title>BlueBird - Admin</title>
+    <title>sands - Admin</title>
 </head>
 
 <body>

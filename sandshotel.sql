@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2022 at 11:19 AM
+-- Generation Time: Nov 9, 2024 at 11:19 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -18,36 +18,17 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bluebirdhotel`
--- User: `bluebird_user`
+-- Database: `sandshotel`
+-- User: `sands_user`
 -- Password:   `password`
 --
-DROP DATABASE IF EXISTS bluebirdhotel;
-CREATE DATABASE IF NOT EXISTS bluebirdhotel;
+DROP DATABASE IF EXISTS sandshotel;
+CREATE DATABASE IF NOT EXISTS sandshotel;
 
-DROP USER IF EXISTS'bluebird_user'@'%';
-CREATE USER IF NOT EXISTS 'bluebird_user'@'%' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON bluebirdhotel.* TO 'bluebird_user'@'%';
-USE bluebirdhotel;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `emp_login`
---
-
-CREATE TABLE `emp_login` (
-  `empid` int(100) NOT NULL,
-  `Emp_Email` varchar(50) NOT NULL,
-  `Emp_Password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `emp_login`
---
-
-INSERT INTO `emp_login` (`empid`, `Emp_Email`, `Emp_Password`) VALUES
-(1, 'Admin@gmail.com', '1234');
+DROP USER IF EXISTS'sands_user'@'%';
+CREATE USER IF NOT EXISTS 'sands_user'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON sandshotel.* TO 'sands_user'@'%';
+USE sandshotel;
 
 -- --------------------------------------------------------
 
@@ -120,7 +101,7 @@ INSERT INTO `room` (`id`, `type`, `bedding`) VALUES
 -- Table structure for table `roombook`
 --
 
-CREATE TABLE `roombook` (
+CREATE TABLE `booking` (
   `id` int(10) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
@@ -145,54 +126,16 @@ INSERT INTO `roombook` (`id`, `Name`, `Email`, `Country`, `Phone`, `RoomType`, `
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `signup`
---
-
-CREATE TABLE `signup` (
-  `UserID` int(100) NOT NULL,
-  `Username` varchar(50) NOT NULL,
-  `Email` varchar(50) NOT NULL,
-  `Password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `signup`
---
-INSERT INTO `signup` (`UserID`, `Username`, `Email`, `Password`) VALUES
-(1, 'Tushar Pankhaniya', 'tusharpankhaniya2202@gmail.com', '123');
+CREATE TABLE guest(
+    guest_id INT PRIMARY KEY,
+    phoneno BIGINT NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    first_name VARCHAR(20),
+    last_name VARCHAR(20),
+    account_no BIGINT
+);
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `staff`
---
-
-CREATE TABLE `staff` (
-  `id` int(30) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `work` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `staff`
---
-
-INSERT INTO `staff` (`id`, `name`, `work`) VALUES
-(1, 'Tushar pankhaniya', 'Manager'),
-(3, 'rohit patel', 'Cook'),
-(4, 'Dipak', 'Cook'),
-(5, 'tirth', 'Helper'),
-(6, 'mohan', 'Helper'),
-(7, 'shyam', 'cleaner'),
-(8, 'rohan', 'weighter'),
-(9, 'hiren', 'weighter'),
-(10, 'nikunj', 'weighter'),
-(11, 'rekha', 'Cook');
-
---
--- Indexes for dumped tables
---
 
 --
 -- Indexes for table `emp_login`
@@ -252,17 +195,6 @@ ALTER TABLE `room`
 ALTER TABLE `roombook`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
---
--- AUTO_INCREMENT for table `signup`
---
-ALTER TABLE `signup`
-  MODIFY `UserID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `staff`
---
-ALTER TABLE `staff`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

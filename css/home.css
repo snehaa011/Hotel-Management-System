@@ -75,7 +75,7 @@ ul li a:hover{
     display: flex;
     justify-content: center;
 }
-.logo .bluebirdlogo {
+.logo .sandslogo {
     height: 100%;
 }
 
@@ -136,7 +136,7 @@ ul li a:hover{
     line-height: 100px;
     padding: 5px;
     /* text gradiant */
-    background: -webkit-linear-gradient(317deg, rgba(0, 60, 255, 0.81) 0%, rgb(255 0 123) 70%);
+    background: -webkit-linear-gradient(317deg, rgba(52, 30, 19, 0.81) 0%, rgb(97, 74, 59) 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
